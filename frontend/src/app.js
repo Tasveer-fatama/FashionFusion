@@ -1,20 +1,15 @@
-const search = () =>{
-    const searchbox = document.getElementById("search-item").value.toUpperCase();
-    const storeitems =document.getElementById("product-list");
-    const product=document.getElementsByClassName(".product")
-    const pname = storeitems.getElementByTagName("h5")
-    console.log(pname);
-
-    for(var i=0; i<pname.length; i++){
-        let match=product[i].getElementByTagName('h5')[0];
-
-        if(match){
-        let textvalue= match.textContent || match.innerHTML
-        if (textvalue.toUpperCase().indexof(searchbox)>-1){
-            product[i].style.display="";
-        }else{
-            product[i].style.display="none";
-        }
-        }
+function search() {
+    const searchTerm = document.getElementById('search-item').value.toLowerCase(); // Get search term in lowercase
+    const productList = document.getElementById('product-list');
+    const products = productList.querySelectorAll('.product'); // Select all product cards
+  
+    for (const product of products) {
+      const productTitle = product.querySelector('h5').textContent.toLowerCase(); // Get product title in lowercase
+  
+      if (productTitle.includes(searchTerm)) {
+        product.classList.remove('hidden'); // Show matching products
+      } else {
+        product.classList.add('hidden'); // Hide non-matching products
+      }
     }
-}
+  }
