@@ -1,15 +1,15 @@
 function search() {
-    const searchTerm = document.getElementById('search-item').value.toLowerCase(); // Get search term in lowercase
+    const searchTerm = document.getElementById('search-item').value.toLowerCase(); 
     const productList = document.getElementById('product-list');
-    const products = productList.querySelectorAll('.product'); // Select all product cards
+    const products = productList.querySelectorAll('.product'); 
   
     for (const product of products) {
-      const productTitle = product.querySelector('h5').textContent.toLowerCase(); // Get product title in lowercase
+      const productTitle = product.querySelector('h5').textContent.toLowerCase(); 
   
       if (productTitle.includes(searchTerm)) {
-        product.classList.remove('hidden'); // Show matching products
+        product.classList.remove('hidden'); 
       } else {
-        product.classList.add('hidden'); // Hide non-matching products
+        product.classList.add('hidden'); 
       }
     }
   }
